@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportActive | Pilates & Zdravý Pohyb</title>
+  <meta name="description" content="Prezentační a rezervační portál pro pilates a zdravotně kompenzační pohyb pod vedením SportActive. Zpevněte střed těla a zbavte se bolestí zad.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css?v=1.0.1">
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo">Sport<span>Active</span></div>
+      <div class="preloader-spinner"></div>
+    </div>
+  </div>
+
+  <!-- Ambient Cinematic Background Blobs -->
+  <div class="bg-ambient">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+    <div class="ambient-blob blob-3"></div>
+  </div>
+
+  <!-- Floating Navigation Header -->
+  <header id="main-header">
+    <div class="nav-container">
+      <a href="#domu" class="logo">
+        Sport<span>Active</span>
+      </a>
+      
+      <!-- Premium Minimalist 3-Button Navigation with Sliding Viewport -->
+      <div class="nav-minimalist-wrapper">
+        <div class="nav-slide-viewport">
+          <div class="nav-slide-track" id="nav-slide-track">
+            <a href="#domu" class="nav-slide-item active" data-index="0">Domů</a>
+            <a href="#o-mne" class="nav-slide-item" data-index="1">O mně</a>
+            <a href="#rozvrh" class="nav-slide-item" data-index="2">Rozvrh</a>
+            <a href="#mista" class="nav-slide-item" data-index="3">Místa</a>
+            <a href="#videa" class="nav-slide-item" data-index="4">Videa</a>
+            <a href="#blog" class="nav-slide-item" data-index="5">Blog</a>
+            <a href="#domu" class="nav-slide-item" data-index="6">Domů</a>
+          </div>
+        </div>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Přepnout motiv" title="Přepnout do světlého režimu">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <a href="#rezervovat" class="btn-nav-booking" id="btn-nav-book">Rezervovat</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="domu" class="hero">
+    <div class="hero-bg"></div>
+    
+    <div class="container hero-content">
+      <span class="section-tag reveal">Pohyb pro zdraví a vitalitu</span>
+      <h1 class="hero-title reveal">
+        Vraťte svému tělu 
+        <span>sílu, ohebnost a rovnováhu.</span>
+      </h1>
+      <p class="hero-descr reveal">
+        Profesionální lekce <strong>Pilates</strong> pro zdravá záda a pevný střed těla.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#rozvrh" class="btn-primary">Vybrat lekci a rezervovat</a>
+        <a href="#o-mne" class="btn-secondary">Zjistit více</a>
+      </div>
+      
+      <!-- Premium Stats Banner (Libor Vinkler style) -->
+      <div class="stats-banner reveal">
+        <div class="stat-item">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">LET ZKUŠENOSTÍ</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">150+</span>
+          <span class="stat-label">SPOKOJENÝCH KLIENTŮ</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">98%</span>
+          <span class="stat-label">ÚLEVA OD BOLESTI</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">4.9★</span>
+          <span class="stat-label">HODNOCENÍ KLIENTŮ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-separator">
+
+  <!-- About Me & Style Section -->
+  <section id="o-mne">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">O mně / O cvičení</span>
+        <h2 class="section-title" id="text-about-title">Kdo jsem a co spolu zažijeme</h2>
+        <p class="section-subtitle" id="text-about-subtitle">Jmenuji se lektorka SportActive a provedu vás cvičením, které vaše tělo ocení a zregeneruje.</p>
+      </div>
+      
+      <div class="about-grid">
+        <!-- Left: Premium Image Collage (Client Actual Photos) -->
+        <div class="about-gallery reveal">
+          <div class="gallery-wrapper">
+            <div class="gallery-card main-img glass-panel">
+              <img src="images/olga/bmp-5541.jpeg" alt="Olga - Pilates cvičení">
+            </div>
+            <div class="gallery-card sub-img glass-panel">
+              <img src="images/olga/bmp-5556.jpeg" alt="Olga - Hluboký stabilizační systém">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Shortened Biography -->
+        <div class="about-bio glass-panel reveal" id="text-about-bio">
+          <p>
+            Vítám vás ve <strong>SportActive</strong>! Jmenuji se Klára Veselá a moje lekce spojují preciznost Pilates se zdravým, funkčním pohybem. Zaměřuji se na <strong>odstranění bolestí zad</strong>, zpevnění středu těla (CORE) a celkovou regeneraci. 
+          </p>
+          <p>
+            Moje filozofie je jednoduchá: <strong>Cvičení vás musí bavit, dodávat energii a přinášet trvalé benefity do běžného života.</strong> Cvičíme bezpečně, plynule a s ohledem na vaše individuální potřeby.
+          </p>
+        </div>
+      </div>
+
+      <!-- Decluttered Symmetrical Pillars Section -->
+      <div class="pillars-section">
+        <div class="pillars-header reveal">
+          <span class="section-tag">Pilíře naší metody</span>
+          <h3 class="section-title" style="font-size: 2.5rem; margin-bottom: 3rem;">Na čem stavíme každou lekci</h3>
+        </div>
+
+        <div class="style-pillars reveal">
+          <div class="pillar-card glass-panel">
+            <div class="pillar-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h3>Pilates & Střed</h3>
+            <p>Hluboké zpevnění svalů břicha, zad a pánevního dna pro stabilní postoj a zdraví páteře.</p>
+          </div>
+          
+          <div class="pillar-card glass-panel">
+            <div class="pillar-icon"><i class="fa-solid fa-arrows-spin"></i></div>
+            <h3>Mobilita & Rozsah</h3>
+            <p>Uvolnění zatuhlých kloubů, zvýšení rozsahu kyčlí a ramen pro přirozený, lehký pohyb.</p>
+          </div>
+          
+          <div class="pillar-card glass-panel">
+            <div class="pillar-icon"><i class="fa-solid fa-wind"></i></div>
+            <h3>Dech & Vědomí</h3>
+            <p>Správná mechanika dýchání zapojuje bránici, snižuje stres a zefektivňuje cvičení svalů.</p>
+          </div>
+          
+          <div class="pillar-card glass-panel">
+            <div class="pillar-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Prevence & Kompenzace</h3>
+            <p>Cílené cviky vyrovnávají svalové dysbalance ze sedavého zaměstnání nebo jednostranných sportů.</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-separator">
+
+  <!-- Lessons & Schedule Section -->
+  <section id="rozvrh">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Rozvrh & Přihlašování</span>
+        <h2 class="section-title">Aktuální nabídka lekcí</h2>
+        <p class="section-subtitle">Vyberte si lekci, která vám časově i zaměřením vyhovuje. Kapacita je omezená pro zachování individuálního přístupu.</p>
+      </div>
+
+      <div class="schedule-filters reveal" id="schedule-filters">
+        <button class="filter-btn active" data-filter="all">Všechny lekce</button>
+        <button class="filter-btn" data-filter="Pilates">Pilates</button>
+        <button class="filter-btn" data-filter="Zdravá záda">Zdravá záda</button>
+        <button class="filter-btn" data-filter="Pánevní dno & Střed">Pánevní dno & Střed</button>
+        <button class="filter-btn" data-filter="Mobilita & Strečink">Mobilita & Strečink</button>
+      </div>
+
+      <div class="schedule-grid reveal" id="schedule-grid">
+        <!-- Dynmic content loaded by JS -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-separator">
+
+  <!-- Locations Section -->
+  <section id="mista">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Kde cvičíme</span>
+        <h2 class="section-title">Naše cvičební prostory</h2>
+        <p class="section-subtitle">Příjemné, čisté a plně vybavené sály pro vaše maximální pohodlí během lekce.</p>
+      </div>
+      
+      <div class="location-grid">
+        <div class="location-info reveal" id="location-list">
+          <!-- Dynamic Location Cards generated by JS -->
+        </div>
+        
+        <div class="map-wrapper reveal">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-separator">
+
+  <!-- Videos & Demos Section -->
+  <section id="videa">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Instruktážní videa</span>
+        <h2 class="section-title">Cvičte se mnou i doma</h2>
+        <p class="section-subtitle">Krátké ukázky cviků, tipy na domácí protažení a instruktážní videa pro zdravý pohyb každý den.</p>
+      </div>
+
+      <div class="videos-grid reveal" id="videos-grid">
+        <!-- Dynamic video cards loaded by JS -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-separator">
+
+  <!-- Blog Section -->
+  <section id="blog">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Znalosti & Inspirace</span>
+        <h2 class="section-title">Články a tipy na cvičení</h2>
+        <p class="section-subtitle">Přečtěte si užitečné rady o anatomii těla, prevenci bolestí zad a správném provádění cviků.</p>
+      </div>
+
+      <div class="blog-grid reveal" id="blog-grid">
+        <!-- Dynamic blog cards loaded by JS -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-separator">
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#domu" class="logo">Sport<span>Active</span></a>
+          <p>Spojení pilates, zdravého pohybu a rehabilitačních principů. Zpevněte tělo, uvolněte klouby a zbavte se napětí.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Rychlé odkazy</h4>
+          <ul class="footer-links">
+            <li><a href="#domu">Domů</a></li>
+            <li><a href="#o-mne">O mně / Cvičení</a></li>
+            <li><a href="#rozvrh">Rozvrh lekcí</a></li>
+            <li><a href="#mista">Kde cvičíme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Vzdělávání</h4>
+          <ul class="footer-links">
+            <li><a href="#videa">Ukázky cvičení</a></li>
+            <li><a href="#blog">Blog a články</a></li>
+            <li><a href="#" id="footer-admin-trigger">Administrace webu</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li><span style="color: var(--text-sub);"><i class="fa-solid fa-envelope" style="color: var(--color-primary); margin-right: 0.5rem;"></i> info@sportactive.cz</span></li>
+            <li><span style="color: var(--text-sub);"><i class="fa-solid fa-phone" style="color: var(--color-primary); margin-right: 0.5rem;"></i> +420 777 123 456</span></li>
+            <li><span style="color: var(--text-sub);"><i class="fa-solid fa-location-dot" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Praha a okolí, ČR</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 SportActive. Všechna práva vyhrazena.</p>
+        <p>Vytvořeno s citem pro pohyb a detail</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Reservation Overlay Modal -->
+  <div class="modal-overlay" id="booking-modal">
+    <div class="modal-container glass-panel">
+      <div class="modal-close" id="booking-modal-close"><i class="fa-solid fa-xmark"></i></div>
+      <h3 class="modal-title" id="booking-modal-title">Rezervace lekce</h3>
+      
+      <div class="modal-summary-box">
+        <div class="modal-summary-item">
+          <span>Lekce:</span>
+          <span id="book-summary-title">-</span>
+        </div>
+        <div class="modal-summary-item">
+          <span>Čas konání:</span>
+          <span id="book-summary-time">-</span>
+        </div>
+        <div class="modal-summary-item">
+          <span>Místo:</span>
+          <span id="book-summary-venue">-</span>
+        </div>
+        <div class="modal-summary-item">
+          <span>Cena lekce:</span>
+          <span id="book-summary-price">-</span>
+        </div>
+        <div class="modal-summary-item">
+          <span>Stav kapacity:</span>
+          <span id="book-summary-capacity">-</span>
+        </div>
+      </div>
+
+      <div class="feedback-msg" id="booking-feedback"></div>
+
+      <form id="booking-form">
+        <input type="hidden" id="book-class-id">
+        <div class="form-group">
+          <label class="form-label" for="book-name">Jméno a příjmení *</label>
+          <input class="form-input" type="text" id="book-name" required placeholder="Napište své jméno">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="book-email">E-mailová adresa *</label>
+          <input class="form-input" type="email" id="book-email" required placeholder="například@email.cz">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="book-phone">Telefonní číslo *</label>
+          <input class="form-input" type="tel" id="book-phone" required placeholder="+420 123 456 789">
+        </div>
+        <div class="form-group" style="display: flex; gap: 0.5rem; align-items: flex-start; margin-top: 1rem;">
+          <input type="checkbox" id="book-gdpr" required style="margin-top: 0.3rem;">
+          <label for="book-gdpr" style="font-size: 0.85rem; color: var(--text-sub);">
+            Souhlasím se zpracováním osobních údajů pro účely rezervace lekce SportActive. *
+          </label>
+        </div>
+        
+        <button type="submit" class="btn-primary form-submit-btn" id="btn-submit-booking">
+          Potvrdit a odeslat rezervaci
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Verification Modal -->
+  <div class="modal-overlay" id="admin-login-modal">
+    <div class="modal-container glass-panel" style="max-width: 420px;">
+      <div class="modal-close" id="admin-login-close"><i class="fa-solid fa-xmark"></i></div>
+      <h3 class="modal-title" style="text-align: center;"><i class="fa-solid fa-lock" style="color: var(--color-primary); margin-right: 0.5rem;"></i>Přihlášení správce</h3>
+      
+      <div class="feedback-msg" id="admin-login-feedback"></div>
+      
+      <form id="admin-login-form">
+        <div class="form-group">
+          <label class="form-label" for="admin-pass">Zadejte heslo administrátora</label>
+          <input class="form-input" type="password" id="admin-pass" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn-primary form-submit-btn">Odemknout Administraci</button>
+      </form>
+      <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 1.5rem;">Demo heslo: <strong style="color: var(--text-sub);">sportactive2026</strong></p>
+    </div>
+  </div>
+
+  <!-- Admin Main Dashboard Modal -->
+  <div class="modal-overlay" id="admin-dashboard-modal">
+    <div class="modal-container glass-panel admin-dashboard-container">
+      <div class="modal-close" id="admin-dashboard-close"><i class="fa-solid fa-xmark"></i></div>
+      
+      <div class="admin-header">
+        <h3 class="admin-header-title">
+          <i class="fa-solid fa-circle-nodes"></i> Sport<span>Active</span> Administrační Panel
+        </h3>
+        <button class="btn-secondary" id="admin-logout-btn" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">
+          <i class="fa-solid fa-right-from-bracket" style="margin-right: 0.5rem;"></i> Odhlásit se
+        </button>
+      </div>
+
+      <div class="admin-layout">
+        <div class="admin-sidebar">
+          <button class="admin-tab-btn active" data-tab="admin-lessons"><i class="fa-solid fa-calendar-days"></i> Lekce</button>
+          <button class="admin-tab-btn" data-tab="admin-bookings"><i class="fa-solid fa-users"></i> Rezervace</button>
+          <button class="admin-tab-btn" data-tab="admin-texts"><i class="fa-solid fa-file-signature"></i> Texty webu</button>
+          <button class="admin-tab-btn" data-tab="admin-articles"><i class="fa-solid fa-feather-pointed"></i> Články blogu</button>
+          <button class="admin-tab-btn" data-tab="admin-videos-tab"><i class="fa-solid fa-video"></i> Videa</button>
+          <button class="admin-tab-btn" data-tab="admin-database"><i class="fa-solid fa-database"></i> Záloha dat</button>
+        </div>
+
+        <div class="admin-content-pane">
+          
+          <!-- Tab 1: Manage Lessons -->
+          <div class="admin-section active" id="admin-lessons">
+            <div class="admin-grid-top">
+              <h4 style="font-family: var(--font-title); font-size: 1.3rem;">Vypsané cvičební lekce</h4>
+              <button class="btn-primary" id="btn-add-class" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                <i class="fa-solid fa-plus" style="margin-right: 0.5rem;"></i> Nová Lekce
+              </button>
+            </div>
+            
+            <div id="admin-lesson-form-container" style="display: none; margin-bottom: 2rem; padding: 2rem; border-radius: 12px; border: var(--border-admin); background: rgba(255, 255, 255, 0.015);">
+              <h5 id="lesson-form-title" style="font-family: var(--font-title); font-size: 1.15rem; margin-bottom: 1.5rem;">Přidat novou lekci</h5>
+              <form id="lesson-editor-form">
+                <input type="hidden" id="edit-lesson-id">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="lesson-title">Název lekce *</label>
+                    <input class="form-input" type="text" id="lesson-title" required placeholder="Např. Pilates pro začátečníky">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="lesson-type">Kategorie *</label>
+                    <select class="form-select" id="lesson-type">
+                      <option value="Pilates">Pilates</option>
+                      <option value="Zdravá záda">Zdravá záda</option>
+                      <option value="Pánevní dno & Střed">Pánevní dno & Střed</option>
+                      <option value="Mobilita & Strečink">Mobilita & Strečink</option>
+                    </select>
+                  </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="lesson-venue">Místo konání *</label>
+                    <select class="form-select" id="lesson-venue">
+                      <!-- Dynamic Venues populated from database -->
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="lesson-day">Den a čas *</label>
+                    <input class="form-input" type="text" id="lesson-day" required placeholder="Např. Pondělí 18:00 - 19:00">
+                  </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="lesson-duration">Délka lekce (minut)</label>
+                    <input class="form-input" type="number" id="lesson-duration" required value="60">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="lesson-capacity">Kapacita míst *</label>
+                    <input class="form-input" type="number" id="lesson-capacity" required value="12">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="lesson-price">Cena lekce (Kč) *</label>
+                    <input class="form-input" type="number" id="lesson-price" required value="200">
+                  </div>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1rem;">
+                  <button type="button" class="btn-secondary" id="btn-lesson-cancel" style="padding: 0.5rem 1rem;">Zrušit</button>
+                  <button type="submit" class="btn-primary" style="padding: 0.5rem 1.5rem;">Uložit lekci</button>
+                </div>
+              </form>
+            </div>
+            
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Název a Kategorie</th>
+                    <th>Termín</th>
+                    <th>Místo</th>
+                    <th>Kapacita / Cena</th>
+                    <th style="width: 100px;">Akce</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-lessons-tbody">
+                  <!-- Dynamic lessons row loaded by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab 2: Manage Bookings -->
+          <div class="admin-section" id="admin-bookings">
+            <h4 style="font-family: var(--font-title); font-size: 1.3rem; margin-bottom: 2rem;">Seznam přihlášených klientů a rezervací</h4>
+            
+            <div style="margin-bottom: 2rem; display: flex; gap: 1rem; align-items: center;">
+              <span style="color: var(--text-sub); font-size: 0.95rem;">Filtrovat podle lekce:</span>
+              <select class="form-select" id="admin-booking-filter" style="max-width: 300px; padding: 0.5rem 1rem;">
+                <option value="all">Všechny lekce</option>
+                <!-- Dynamic selections generated by JS -->
+              </select>
+            </div>
+            
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Klient</th>
+                    <th>Kontakt</th>
+                    <th>Lekce / Místo</th>
+                    <th>Typ rezervace</th>
+                    <th style="width: 80px;">Akce</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-bookings-tbody">
+                  <!-- Dynamic bookings rows loaded by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab 3: Edit Website Text Content -->
+          <div class="admin-section" id="admin-texts">
+            <h4 style="font-family: var(--font-title); font-size: 1.3rem; margin-bottom: 2rem;">Úprava textového obsahu webu</h4>
+            
+            <form id="admin-text-form">
+              <div class="form-group">
+                <label class="form-label" for="inp-about-title">Hlavní titulek sekce "O mně"</label>
+                <input class="form-input" type="text" id="inp-about-title" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="inp-about-subtitle">Podtitulek sekce "O mně"</label>
+                <input class="form-input" type="text" id="inp-about-subtitle" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="inp-about-bio">Představení a hlavní text (HTML povoleno)</label>
+                <textarea class="form-input" id="inp-about-bio" rows="6" required style="resize: vertical; font-family: inherit; line-height: 1.6;"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="inp-instructor-name">Jméno lektorky</label>
+                <input class="form-input" type="text" id="inp-instructor-name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="inp-about-gear">Doporučené oblečení a vybavení ("Co si vzít s sebou")</label>
+                <textarea class="form-input" id="inp-about-gear" rows="3" required style="resize: vertical;"></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="padding: 0.75rem 2rem;"><i class="fa-solid fa-floppy-disk" style="margin-right: 0.5rem;"></i> Uložit a aktualizovat web</button>
+            </form>
+          </div>
+
+          <!-- Tab 4: Manage Blog Articles -->
+          <div class="admin-section" id="admin-articles">
+            <div class="admin-grid-top">
+              <h4 style="font-family: var(--font-title); font-size: 1.3rem;">Správa článků a rad na cvičení</h4>
+              <button class="btn-primary" id="btn-add-article" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                <i class="fa-solid fa-plus" style="margin-right: 0.5rem;"></i> Nový Článek
+              </button>
+            </div>
+            
+            <div id="admin-article-form-container" style="display: none; margin-bottom: 2rem; padding: 2rem; border-radius: 12px; border: var(--border-admin); background: rgba(255, 255, 255, 0.015);">
+              <h5 id="article-form-title" style="font-family: var(--font-title); font-size: 1.15rem; margin-bottom: 1.5rem;">Přidat nový článek</h5>
+              <form id="article-editor-form">
+                <input type="hidden" id="edit-article-id">
+                <div class="form-group">
+                  <label class="form-label" for="article-title">Název článku *</label>
+                  <input class="form-input" type="text" id="article-title" required placeholder="Např. 3 rychlé cviky proti bolestem krční páteře">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="article-tag">Kategorie článku *</label>
+                    <input class="form-input" type="text" id="article-tag" required placeholder="Např. Zdravá záda, Mobilita, Tipy">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="article-excerpt">Stručný úvodní úryvek (excerpt) *</label>
+                    <input class="form-input" type="text" id="article-excerpt" required placeholder="Krátký popis zobrazený na kartě článku">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="article-content">Celý text článku (HTML povoleno - odstavce, nadpisy h3, odrážky) *</label>
+                  <textarea class="form-input" id="article-content" rows="10" required style="resize: vertical; font-family: inherit; line-height: 1.6;"></textarea>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1rem;">
+                  <button type="button" class="btn-secondary" id="btn-article-cancel" style="padding: 0.5rem 1rem;">Zrušit</button>
+                  <button type="submit" class="btn-primary" style="padding: 0.5rem 1.5rem;">Uložit článek</button>
+                </div>
+              </form>
+            </div>
+            
+            <div class="admin-card-list" id="admin-articles-list">
+              <!-- Dynamic articles generated by JS -->
+            </div>
+          </div>
+
+          <!-- Tab 5: Manage Videos -->
+          <div class="admin-section" id="admin-videos-tab">
+            <div class="admin-grid-top">
+              <h4 style="font-family: var(--font-title); font-size: 1.3rem;">Správa instruktážních videí</h4>
+              <button class="btn-primary" id="btn-add-video" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                <i class="fa-solid fa-plus" style="margin-right: 0.5rem;"></i> Přidat Video
+              </button>
+            </div>
+            
+            <div id="admin-video-form-container" style="display: none; margin-bottom: 2rem; padding: 2rem; border-radius: 12px; border: var(--border-admin); background: rgba(255, 255, 255, 0.015);">
+              <h5 id="video-form-title" style="font-family: var(--font-title); font-size: 1.15rem; margin-bottom: 1.5rem;">Přidat nové video</h5>
+              <form id="video-editor-form">
+                <input type="hidden" id="edit-video-id">
+                <div class="form-group">
+                  <label class="form-label" for="video-title-input">Název videa *</label>
+                  <input class="form-input" type="text" id="video-title-input" required placeholder="Např. Ranní protažení pro zdravá záda">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="video-desc-input">Stručný popis cvičení</label>
+                  <input class="form-input" type="text" id="video-desc-input" required placeholder="Např. 10 minutová ranní sestava na podložce.">
+                </div>
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="video-url-input">Odkaz na YouTube Video *</label>
+                    <input class="form-input" type="url" id="video-url-input" required placeholder="Např. https://www.youtube.com/watch?v=co3N2B88N_Y">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="video-thumb-input">Obrázek náhledu (nepovinné)</label>
+                    <input class="form-input" type="text" id="video-thumb-input" placeholder="Např. /images/video_back.jpg">
+                  </div>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1rem;">
+                  <button type="button" class="btn-secondary" id="btn-video-cancel" style="padding: 0.5rem 1rem;">Zrušit</button>
+                  <button type="submit" class="btn-primary" style="padding: 0.5rem 1.5rem;">Uložit video</button>
+                </div>
+              </form>
+            </div>
+            
+            <div class="admin-card-list" id="admin-videos-list">
+              <!-- Dynamic video lists generated by JS -->
+            </div>
+          </div>
+
+          <!-- Tab 6: JSON Database Operations -->
+          <div class="admin-section" id="admin-database">
+            <h4 style="font-family: var(--font-title); font-size: 1.3rem; margin-bottom: 1.5rem;">Zálohování a přenos dat webu</h4>
+            <p style="color: var(--text-sub); margin-bottom: 2rem; font-size: 0.95rem;">Veškeré změny lekcí, textů, článků a videí, které provedete, se ukládají lokálně ve vašem prohlížeči. Zde si můžete kompletní data vyexportovat (stáhnout jako soubor) jako zálohu a v případě potřeby je kdykoliv nahrát zpět (např. na jiném počítači nebo v jiném prohlížeči).</p>
+            
+            <div class="feedback-msg" id="db-feedback"></div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+              <div class="glass-panel" style="padding: 2rem; border: var(--border-admin); background: rgba(255,255,255,0.01);">
+                <h5 style="font-family: var(--font-title); font-size: 1.15rem; margin-bottom: 1rem;"><i class="fa-solid fa-download" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Exportovat zálohu</h5>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Stáhne kompletní konfiguraci webu, články, vypsané lekce i veškeré existující rezervace klientů jako jeden soubor `sportactive_zaloha.json`.</p>
+                <button class="btn-primary" id="btn-db-export" style="width: 100%;"><i class="fa-solid fa-file-export"></i> Stáhnout JSON Zálohu</button>
+              </div>
+
+              <div class="glass-panel" style="padding: 2rem; border: var(--border-admin); background: rgba(255,255,255,0.01);">
+                <h5 style="font-family: var(--font-title); font-size: 1.15rem; margin-bottom: 1rem;"><i class="fa-solid fa-upload" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Obnovit ze zálohy</h5>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Nahrajte předchozí soubor zálohy `.json` pro obnovení textů, rozvrhu lekcí a klientských rezervací. Aktuální lokální data budou přepsána.</p>
+                
+                <div style="position: relative; margin-bottom: 1rem;">
+                  <input type="file" id="db-import-file" accept=".json" style="display: none;">
+                  <button class="btn-secondary" id="btn-db-import-trigger" style="width: 100%;"><i class="fa-solid fa-file-import"></i> Vybrat soubor zálohy</button>
+                </div>
+                <div id="import-file-name" style="text-align: center; font-size: 0.85rem; color: var(--color-mint); margin-bottom: 1rem; display: none;">Vybrán soubor: <span></span></div>
+                <button class="btn-primary" id="btn-db-import-submit" style="width: 100%; display: none; background: linear-gradient(135deg, var(--color-accent) 0%, #d97706 100%);"><i class="fa-solid fa-circle-check"></i> Potvrdit a přepsat data</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detailed Blog Reader Modal -->
+  <div class="modal-overlay" id="blog-modal">
+    <div class="modal-container glass-panel" style="max-width: 750px;">
+      <div class="modal-close" id="blog-modal-close"><i class="fa-solid fa-xmark"></i></div>
+      <div class="blog-modal-date" id="blog-reader-tag">-</div>
+      <h3 class="modal-title" id="blog-reader-title" style="margin-bottom: 0.5rem;">-</h3>
+      <div class="blog-date" id="blog-reader-date" style="margin-bottom: 2rem;">-</div>
+      <div class="blog-modal-content">
+        <div class="blog-modal-text" id="blog-reader-content">
+          <!-- Dynamic text generated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Video Player Modal -->
+  <div class="modal-overlay" id="video-modal">
+    <div class="modal-container glass-panel video-modal-container">
+      <div class="modal-close" id="video-modal-close"><i class="fa-solid fa-xmark"></i></div>
+      <h3 class="modal-title" id="video-modal-title" style="font-size: 1.5rem; margin-bottom: 1.5rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 2rem;">Náhled videa</h3>
+      <div class="video-player-container">
+        <div id="video-iframe-container">
+          <!-- Video iframe loaded by JS dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Main Application Engine -->
+  <script src="app.js"></script>
+</body>
+</html>
